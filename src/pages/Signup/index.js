@@ -6,9 +6,6 @@ import ButtonComp from '../../components/ButtonComp';
 import * as C from './styles';
 
 const Signup = () => {
-    const [name, setName] = useState('');
-    const [surname, setSurname] = useState('');
-    const [phone, setPhone] = useState('');
     const [email, setEmail] = useState('');
     const [emailConf, setEmailConf] = useState('');
     const [password, setPassword] = useState('');
@@ -18,7 +15,7 @@ const Signup = () => {
     const { signup } = useAuth();
 
     const handleSignup = () => {
-        if (!email | !emailConf | !password | !name | !surname | !phone) {
+        if (!email | !emailConf | !password) {
             setError('Preencha todos os campos');
             return;
         } else if (email !== emailConf) {
@@ -26,7 +23,7 @@ const Signup = () => {
             return;
         }
 
-        const res = signup(email, password, name, surname, phone);
+        const res = signup(email, password);
 
         if (res) {
             setError(res);
@@ -41,24 +38,6 @@ const Signup = () => {
         <C.Container>
             <C.Label>SISTEMA DE CADASTRO</C.Label>
             <C.Content>
-                <Input 
-                    type='text'
-                    placeholder='Digite seu nome'
-                    value={name}
-                    onChange={(e) => [setName(e.target.value), setError('')]}
-                />
-                <Input 
-                    type='text'
-                    placeholder='Digite seu sobrenome'
-                    value={surname}
-                    onChange={(e) => [setSurname(e.target.value), setError('')]}
-                />
-                <Input 
-                    type='text'
-                    placeholder='Digite seu telefone'
-                    value={phone}
-                    onChange={(e) => [setPhone(e.target.value), setError('')]}
-                />
                 <Input
                     type='email'
                     placeholder='Digite seu E-mail'

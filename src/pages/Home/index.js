@@ -73,10 +73,6 @@ const Home = () => {
                                     <Th fontSize="15px">
                                         Telefone
                                     </Th>
-                                    <Th p={0}></Th>
-                                    <Th p={0}></Th>
-                                    <Th p={0}></Th>
-                                    <Th p={0}></Th>
                                 </Tr>
                             </Thead>
                             <Tbody>
